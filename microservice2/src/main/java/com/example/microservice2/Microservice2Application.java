@@ -1,4 +1,4 @@
-package com.example.oauthdemo;
+package com.example.microservice2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class OauthDemoApplication {
+public class Microservice2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(OauthDemoApplication.class, args);
+        SpringApplication.run(Microservice2Application.class, args);
     }
 
 }

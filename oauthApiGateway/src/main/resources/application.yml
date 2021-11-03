@@ -1,0 +1,20 @@
+server:
+    port: 8083
+spring:
+    cloud:
+        gateway:
+            routes:
+            -   filters:
+                - RemoveRequestHeader=Cookie
+                id: users-status-check
+                predicates:
+                - Path=/users/status/check
+                - Method=GET
+                uri: http://localhost:8082
+            -   filters:
+                - RemoveRequestHeader=Cookie
+                id: microservice2
+                predicates:
+                - Path=/microservice2
+                - Method=GET
+                uri: http://localhost:8084
