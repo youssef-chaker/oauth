@@ -20,8 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/users/status/check")
-                .hasAuthority("ROLE_dev")
-                .anyRequest()
+//                .hasAuthority("ROLE_dev")
+//                .anyRequest()
                 .authenticated()
                 .and()
                 .oauth2ResourceServer()

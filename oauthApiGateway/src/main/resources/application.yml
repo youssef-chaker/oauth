@@ -1,5 +1,5 @@
 server:
-    port: 8083
+    port: 8080
 spring:
     cloud:
         gateway:
@@ -10,11 +10,19 @@ spring:
                 predicates:
                 - Path=/users/status/check
                 - Method=GET
-                uri: http://localhost:8082
+                uri: lb://ouathDemo
             -   filters:
                 - RemoveRequestHeader=Cookie
                 id: microservice2
                 predicates:
                 - Path=/microservice2
                 - Method=GET
-                uri: http://localhost:8084
+                uri: lb://microservice2
+    application:
+        name: api-gateway
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8010/eureka
+    instance:
+        instance-id: ${spring.application.name}:${instanceId:${random.value}}
