@@ -33,20 +33,23 @@ public class DemoController {
 
     @GetMapping
     public String get(@AuthenticationPrincipal OidcUser principal){
-        OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken)SecurityContextHolder.getContext().getAuthentication();
-        OAuth2AuthorizedClient oauth2Client = oAuth2AuthorizedClientService.loadAuthorizedClient(oauthToken.getAuthorizedClientRegistrationId(),oauthToken.getName());
-        String access_token = oauth2Client.getAccessToken().getTokenValue();
-        log.info("access_token : "+access_token);
-        log.info("principal : "+principal);
-        String url = "http://localhost:8080/users/status/check";
-        var headers = new HttpHeaders();
-        headers.add("Authorization","Bearer "+access_token);
+//        OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken)SecurityContextHolder.getContext().getAuthentication();
+//        OAuth2AuthorizedClient oauth2Client = oAuth2AuthorizedClientService.loadAuthorizedClient(oauthToken.getAuthorizedClientRegistrationId(),oauthToken.getName());
+//        String access_token = oauth2Client.getAccessToken().getTokenValue();
+//        log.info("access_token : "+access_token);
+//        log.info("principal : "+principal);
+//        String url = "http://localhost:8080/users/status/check";
+//        var headers = new HttpHeaders();
+//        headers.add("Authorization","Bearer "+access_token);
+//
+//        ResponseEntity<String> responseEntity =restTemplate.exchange(url, HttpMethod.GET,new HttpEntity<>(headers),String.class);
+//        var response = responseEntity.getBody();
+//
+////        var response = webClient.get().uri(url).retrieve().bodyToMono(String.class).block();
+//
+//        return response;
 
-        ResponseEntity<String> responseEntity =restTemplate.exchange(url, HttpMethod.GET,new HttpEntity<>(headers),String.class);
-        var response = responseEntity.getBody();
 
-//        var response = webClient.get().uri(url).retrieve().bodyToMono(String.class).block();
-
-        return response;
+        return "client";
     }
 }
